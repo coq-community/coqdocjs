@@ -142,6 +142,12 @@
 #header h1 { padding: 0;
              margin: 0;}
 
+/* footer */
+#footer {
+  text-align: center;
+  opacity: 0.5;
+}
+
 /* hyperlinks */
 
 @keyframes highlight {
@@ -155,20 +161,34 @@
   animation-duration: 1s;
 }
 
-/* fix placement given a fixed header */
+/* page layout */
+
+.libtitle {
+  display: none;
+}
+
+html,	body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+#page {
+	min-height:100%;
+	position:relative;
+}
+
+#footer {
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
+
 #main  a[name] {
   position: relative;
   padding-top: 4em;
 }
-/*#main  a[name]:before {
-  content: "M";
-  font-size: 0;
-}
-#main a[name] * {
-  position: relative;
-  top: 4em;
-}*/
 
-#page {
-  margin-top: 1.2em;
+#main {
+  padding-top: 1.5em;
 }

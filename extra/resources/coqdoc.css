@@ -1,19 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Open+Sans:400,600);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body{
-    margin: 0;
-    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
 }
 
-#page, #toc {
-    font-family:  "Open Sans", sans-serif;
-    color: #444;
-    background-color: white;
-    display:block;
-    padding: 0;
-    margin:0;
-    min-height: 100%;
-}
 
 #main {
     display: block;
@@ -22,17 +13,17 @@ body{
     padding-bottom: 5em;
     margin-left: auto;
     margin-right: auto;
+    max-width: 60em;
 }
 
-#main a > .id, #main a {
+
+a {
     text-decoration: none;
     border-radius: 3px;
     padding-left: 3px;
     padding-right: 3px;
     margin-left: -3px;
     margin-right: -3px;
-}
-#main a {
     color: inherit;
     font-weight: bold;
 }
@@ -46,8 +37,6 @@ a[href]:hover, [clickable]:hover{
     cursor: pointer;
 }
 
-.libtitle {display: none}
-
 h, h1, h2, h3, h4, h5 {
     line-height: 1;
     color: black;
@@ -55,17 +44,6 @@ h, h1, h2, h3, h4, h5 {
     font-weight: normal;
     letter-spacing: 0.1em;
     text-align: left;
-}
-
-.libtitle {
-    border-color: grey;
-    border-bottom-style: solid;
-    border-top-style: solid;
-    padding: 0.2em;
-    margin-left: -0.2em;
-    margin-right: -0.2em;
-    margin-top: 32px;
-    margin-bottom: 48px;
 }
 
 div + br {
@@ -95,13 +73,13 @@ div:empty{ display: none;}
 }
 
 #main .doc {
-    margin: 0px;
+    margin: 0;
     text-align: justify;
 }
 
 .inlinecode, .code, #main pre {
     color: black;
-    font-family: "Droid Sans Mono", "DejaVu Sans Mono", monospace;
+    font-family: monospace;
 }
 
 .code > br:first-child {
@@ -117,9 +95,6 @@ div:empty{ display: none;}
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 10px;
-}
-
-.block{
     text-align: center;
 }
 
@@ -182,12 +157,9 @@ tr.infrulemiddle hr {
 
 /* TOC */
 
-#toc {
-    color: #2874AE;
-}
-
 #toc h2{
-    font-size: 1.333em;
+  letter-spacing: 0;
+  font-size: 1.333em;
 }
 
 /* Index */
@@ -234,11 +206,6 @@ ul.doclist {
 
 #toc a h2{
     display: inline;
-}
-
-#main {
-    margin-right: auto;
-    max-width: 60em;
 }
 
 a:empty {

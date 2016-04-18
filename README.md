@@ -22,9 +22,9 @@ This repo is a complete setup with a generic Makefile. Just can add your Coq fil
 ## Files
 
 - [Makefile](Makefile) and [\_CoqProject](_CoqProject): A generic Makefile setup that calls coqc and coqdoc with the right parameters. Use
-```
+	```
 		make doc
-```
+	```
 	to build the Coqdoc website in the folder "doc".
 - [config.js](extra/resources/config.js): contains the unicode replacement table
 - [coqdoc.css](extra/resources/coqdoc.css): a replacement for the default Coqdoc CSS style. Can be removed to use the default style.

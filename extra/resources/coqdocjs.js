@@ -1,4 +1,4 @@
-var coqdocjs = coqdoc-jsboost || {};
+var coqdocjs = coqdocjs || {};
 (function(){
 
 function replace(s){
@@ -8,7 +8,7 @@ function replace(s){
   } else if (m = s.match(/^([A-Za-z]+)_?(\d+)/)) {
     return replace(m[1])+m[2].replace(/\d/g, function(d){return coqdocjs.subscr[d]});
   } else if (coqdocjs.repl.hasOwnProperty(s)){
-    return repl[s]
+    return coqdocjs.repl[s]
   } else {
     return s;
   }
