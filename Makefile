@@ -5,7 +5,6 @@ FOOTER := $(EXTRA_DIR)footer.html
 COQDOCFLAGS := \
   --external 'http://ssr2.msr-inria.inria.fr/doc/ssreflect-1.5/' Ssreflect \
   --external 'http://ssr2.msr-inria.inria.fr/doc/mathcomp-1.5/' MathComp \
-  --external 'https://www.ps.uni-saarland.de/autosubst/doc/' Autosubst \
   --toc --toc-depth 2 --html --interpolate \
   --index indexpage --no-lib-name --parse-comments \
   --with-header $(HEADER) --with-footer $(FOOTER) \
