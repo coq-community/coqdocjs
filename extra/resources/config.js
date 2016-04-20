@@ -57,6 +57,7 @@ coqdocjs.repl = {
 };
 
 coqdocjs.subscr = {
+  "0" : "₀",
   "1" : "₁",
   "2" : "₂",
   "3" : "₃",
