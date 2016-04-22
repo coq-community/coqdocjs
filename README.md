@@ -17,7 +17,7 @@ All of this works with the ordinary coqdoc, by asking coqdoc to use a header fil
 
 ## Usage
 
-This repo is a complete setup with a generic Makefile. Just can add your Coq files in the same folder as the Makefile.
+This repo is a complete setup with a generic Makefile. Just add your Coq files in the same folder as the Makefile.
 
 ## Files
 
@@ -28,5 +28,5 @@ This repo is a complete setup with a generic Makefile. Just can add your Coq fil
 	to build the Coqdoc website in the folder "doc".
 - [config.js](extra/resources/config.js): contains the unicode replacement table
 - [coqdoc.css](extra/resources/coqdoc.css): a replacement for the default Coqdoc CSS style. Can be removed to use the default style.
-- [coqdocjs.js](extra/resources/coqdocjs.js) and [coqdocjs.css](extra/resources/coqdocjs.css): the script rewriteing the DOM and adding the dynamic features with a corresponding CSS style.
+- [coqdocjs.js](extra/resources/coqdocjs.js) and [coqdocjs.css](extra/resources/coqdocjs.css): the script rewriting the DOM and adding the dynamic features with a corresponding CSS style.
 - [header.html](extra/header.html) and [footer.html](extra/footer.html): custom header and footer files used in every generated html file.
