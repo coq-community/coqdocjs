@@ -104,20 +104,18 @@
   width:100%;
   z-index: 100;
   padding: 0.25em;
+  display: block;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+  text-align: center;
+  background-color: rgb(21,57,105);
+  color: white;
+  font-weight: bold;
 }
 
 .button {
   cursor: pointer;
-}
-
-#header {
-    display: block;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-    background-color: rgb(21,57,105);
-    color: white;
-    font-weight: bold;
 }
 
 #header > * {
@@ -129,6 +127,10 @@
 
 #header > a {
     float: right;
+}
+
+#header > .modulename {
+  float: left;
 }
 
 #header > a, #header .button {
@@ -146,6 +148,7 @@
 #footer {
   text-align: center;
   opacity: 0.5;
+  font-size: 75%;
 }
 
 /* hyperlinks */
@@ -184,10 +187,18 @@ html,	body {
 	width:100%;
 }
 
+#main a+h1, #main a+h2, #main a+h3, #main a+h4, #main a+h5 {
+  display: inline-block;
+}
+
 #main  a[name] {
   position: relative;
+  display: inline;
   padding-top: 4em;
-}
+  }
+  #main  a[name]:before {
+    content: "";
+  }
 
 #main {
   padding-top: 1.5em;

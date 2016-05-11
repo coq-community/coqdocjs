@@ -2,7 +2,7 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 
@@ -206,8 +206,4 @@ ul.doclist {
 
 #toc a h2{
     display: inline;
-}
-
-a:empty {
-    float: right;
 }
