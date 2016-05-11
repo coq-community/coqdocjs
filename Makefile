@@ -31,7 +31,7 @@ html: $(COQMAKEFILE) $(VS)
 $(COQMAKEFILE): $(COQ_PROJ) $(VS)
 		coq_makefile -f $(COQ_PROJ) $(VS_OTHER) -o $@
 
-%: $(COQMAKEFILE) $(COQ_PROJ) force
+%: $(COQMAKEFILE) force
 	@$(MAKE) -f $(COQMAKEFILE) $@
 force $(COQ_PROJ) $(VS): ;
 
