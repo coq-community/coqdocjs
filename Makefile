@@ -1,39 +1,38 @@
-DOC := doc/
-EXTRA_DIR := extra/
-HEADER := $(EXTRA_DIR)header.html
-FOOTER := $(EXTRA_DIR)footer.html
-COQDOCFLAGS := \
+EXTRA_DIR:=extra
+COQDOCFLAGS:= \
   --external 'http://ssr2.msr-inria.inria.fr/doc/ssreflect-1.5/' Ssreflect \
   --external 'http://ssr2.msr-inria.inria.fr/doc/mathcomp-1.5/' MathComp \
   --toc --toc-depth 2 --html --interpolate \
   --index indexpage --no-lib-name --parse-comments \
-  --with-header $(HEADER) --with-footer $(FOOTER) \
-  -d $(DOC)
-COQMAKEFILE := Makefile.coq
-COQMAKE := +$(MAKE) -f $(COQMAKEFILE)
-VS := $(wildcard *.v)
+  --with-header $(EXTRA_DIR)/header.html --with-footer $(EXTRA_DIR)/footer.html
+export COQDOCFLAGS
+COQMAKEFILE:=Makefile.coq
+COQ_PROJ:=_CoqProject
+VS:=$(wildcard *.v)
+VS_IN_PROJ:=$(shell grep .v $(COQ_PROJ))
 
-ifneq "$(COQBIN)" ""
-        COQBIN := $(COQBIN)/
+ifeq (,$(VS_IN_PROJ))
+VS_OTHER := $(VS)
+else
+VS := $(VS_IN_PROJ)
 endif
 
-doc: clean-doc all
-	- mkdir -p $(DOC)
-	coqdoc $(COQDOCFLAGS) `cat _CoqProject` $(VS)
-	cp $(EXTRA_DIR)resources/* $(DOC)
+all: html
 
-all: $(COQMAKEFILE)
-	+$(MAKE) -f $(COQMAKEFILE) all
-
-clean-doc:
-	rm -rf $(DOC)
-
-clean: clean-doc
-	-$(COQMAKE) clean
+clean: $(COQMAKEFILE)
+	@$(MAKE) -f $(COQMAKEFILE) $@
 	rm -f $(COQMAKEFILE)
 
-$(COQMAKEFILE): Makefile $(VS)
-	coq_makefile -f _CoqProject $(VS) -o $(COQMAKEFILE)
+html: $(COQMAKEFILE) $(VS)
+	rm -fr html
+	@$(MAKE) -f $(COQMAKEFILE) $@
+	cp $(EXTRA_DIR)/resources/* html
 
+$(COQMAKEFILE): $(COQ_PROJ) $(VS)
+		coq_makefile -f $(COQ_PROJ) $(VS_OTHER) -o $@
 
-.PHONY: all clean clean-doc doc
+%: $(COQMAKEFILE) $(COQ_PROJ) force
+	@$(MAKE) -f $(COQMAKEFILE) $@
+force $(COQ_PROJ) $(VS): ;
+
+.PHONY: clean all force
