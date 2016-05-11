@@ -28,7 +28,7 @@ Then the makefile will only build these files and the documentation will list th
 
 ### Integrate into existing project
 
-Make sure that your Makefile passes `header.html` and `footer.html` as command-line arguments to coqdoc and copies the content of `extra/resources` to the folder containing the built website. Confer the supplied Makefile for details.
+Make sure that your Makefile passes [header.html](extra/header.html) and [footer.html](extra/footer.html) as command-line arguments to coqdoc and copies the content of [extra/resources](extra/resources) to the folder containing the built website. Confer the supplied Makefile for details.
 
 ## Files
 
