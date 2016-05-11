@@ -195,6 +195,7 @@ html,	body {
   position: relative;
   display: inline;
   padding-top: 4em;
+  z-index: -1;
   }
   #main  a[name]:before {
     content: "";
