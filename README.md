@@ -19,16 +19,16 @@ All of this works with the ordinary coqdoc, by asking coqdoc to use a header fil
 ## Usage
 
 ### Set-up a new project
-  This repo is a complete setup with a generic Makefile. Just add your Coq files in the same folder as the Makefile.
-		Execute `make` to build the Coqdoc website in the folder `html`.
-		Specify the name of your package in the file [\_CoqProject](_CoqProject).
-		Optionally, you can list your source files in [\_CoqProject](_CoqProject).
-		Then the makefile will only build these files and the documentation will list them in the specified order.
+
+This repo is a complete setup with a generic Makefile. Just add your Coq files in the same folder as the Makefile.
+Execute `make` to build the Coqdoc website in the folder `html`.
+Specify the name of your package in the file [\_CoqProject](_CoqProject).
+Optionally, you can list your source files in [\_CoqProject](_CoqProject).
+Then the makefile will only build these files and the documentation will list them in the specified order.
 
 ### Integrate into existing project
-	Make sure that your Makefile passes `header.html` and `footer.html` as command-line arguments to coqdoc and copies the content of `extra/resources` to the folder containing the built website. Confer the supplied Makefile for technical details.
 
-
+Make sure that your Makefile passes `header.html` and `footer.html` as command-line arguments to coqdoc and copies the content of `extra/resources` to the folder containing the built website. Confer the supplied Makefile for technical details.
 
 ## Files
 
