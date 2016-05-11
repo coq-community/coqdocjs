@@ -1,6 +1,7 @@
 # CoqdocJS
 
-CoqdocJS is a little script to dynamically improve the coqdoc output. The result can be seen here:
+CoqdocJS is a little script to dynamically improve the coqdoc output.
+The result can be seen here:
 
 https://www.ps.uni-saarland.de/autosubst/doc/Ssr.POPLmark.html
 
@@ -17,7 +18,15 @@ All of this works with the ordinary coqdoc, by asking coqdoc to use a header fil
 
 ## Usage
 
-This repo is a complete setup with a generic Makefile. Just add your Coq files in the same folder as the Makefile.
+<dl>
+  <dt>Set-up a new project</dt>
+  <dd>This repo is a complete setup with a generic Makefile. Just add your Coq files in the same folder as the Makefile.</dd>
+
+  <dt>Integrate into existing project</dt>
+  <dd>Make sure that your Makefile passes `header.html` and `footer.html` as command-line arguments to coqdoc and copies the content of `extra/resources` to the folder containing the built website. Confer the supplied Makefile for technical details. </dd>
+</dl>
+
+
 
 ## Files
 
