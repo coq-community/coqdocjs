@@ -187,19 +187,18 @@ html,	body {
 	width:100%;
 }
 
-#main a+h1, #main a+h2, #main a+h3, #main a+h4, #main a+h5 {
-  display: inline-block;
-}
-
 #main  a[name] {
   position: relative;
   display: inline;
   padding-top: 4em;
-  z-index: -1;
+  z-index: 0;
   }
-  #main  a[name]:before {
+#main  a[name]:before {
     content: "";
   }
+.code > *{
+  z-index: 1;
+}
 
 #main {
   padding-top: 1.5em;
