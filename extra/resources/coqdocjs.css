@@ -187,17 +187,21 @@ html,	body {
 	width:100%;
 }
 
+#main  a[name]:before {
+    content: "";
+}
 #main  a[name] {
   position: relative;
   display: inline;
   padding-top: 4em;
   z-index: 0;
   }
-#main  a[name]:before {
-    content: "";
-  }
 .code > *{
   z-index: 1;
+}
+/* makes anchors above headings not take space */
+#main a[name]:empty {
+    float: right;
 }
 
 #main {
