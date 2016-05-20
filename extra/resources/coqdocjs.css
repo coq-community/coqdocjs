@@ -147,7 +147,6 @@ body {
   color: white;
   font-weight: bold;
   overflow: hidden;
-  min-height: 1.9em;
 }
 
 
@@ -176,13 +175,12 @@ body {
 
 #header a, #header .button {
     color: white;
-
     box-sizing: border-box;
-    /*color : #D6EFFF;*/
 }
 
 #header a {
   border-radius: 0;
+  padding: 0.2em;
 }
 
 #header .button {
