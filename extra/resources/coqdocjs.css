@@ -147,6 +147,7 @@ body {
   color: white;
   font-weight: bold;
   overflow: hidden;
+  min-height: 1.9em;
 }
 
 
@@ -174,8 +175,6 @@ body {
 }
 
 #header a, #header .button {
-    background-color: rgb(63, 103, 156);
-    padding: 0.5em;
     color: white;
 
     box-sizing: border-box;
@@ -187,9 +186,10 @@ body {
 }
 
 #header .button {
+  background-color: rgb(63, 103, 156);
   border-radius: 1em;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   margin: 0.2em;
 }
 
