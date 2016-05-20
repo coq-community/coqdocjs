@@ -3,6 +3,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
+    color: #2D2D2D
 }
 
 a {
@@ -66,7 +67,6 @@ div:empty{ display: none;}
 }
 
 .inlinecode, .code, #main pre {
-    color: black;
     font-family: monospace;
 }
 

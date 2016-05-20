@@ -140,7 +140,7 @@ function fixTitle(){
   var modulename = "." + url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
   modulename = modulename.substring(modulename.lastIndexOf('.')+1);
   if (modulename === "toc") {modulename = "Table of Contents";}
-  else if (modulename === "index") {modulename = "Index";}
+  else if (modulename === "indexpage") {modulename = "Index";}
   else {modulename = modulename + ".v";};
   document.title = modulename;
 }
