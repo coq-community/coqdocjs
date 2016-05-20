@@ -117,6 +117,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+#content:focus {
+  outline: none; /* prevent glow in OS X */
+}
 
 #main {
     display: block;
@@ -136,11 +139,10 @@ body {
 /* header */
 #header {
   width:100%;
-  display: block;
+  display: flex;
   padding: 0;
   margin: 0;
   vertical-align: middle;
-  text-align: center;
   background-color: rgb(21,57,105);
   color: white;
   font-weight: bold;
@@ -151,19 +153,15 @@ body {
   cursor: pointer;
 }
 
+#header > .space {
+  flex:1;
+}
+
 #header > * {
     color: white;
     text-decoration: none;
     margin-left: 15px;
     margin-right: 15px;
-}
-
-#header > a {
-    float: right;
-}
-
-#header > .modulename {
-  float: left;
 }
 
 #header > a, #header .button {
