@@ -43,7 +43,6 @@
 .proof {
   overflow: hidden;
   position: relative;
-  transition: opacity 1s;
   display: inline-block;
 }
 
@@ -221,4 +220,26 @@ body {
 
 a[name]:empty {
   float: right;
+}
+
+/* Proviola */
+
+div.code {
+  width: auto;
+  float: none;
+}
+
+div.goal {
+  position: fixed;
+  left: 75%;
+  width: 25%;
+  top: 3em;
+}
+
+div.doc {
+  clear: both;
+}
+
+span.command:hover {
+  background-color: inherit;
 }

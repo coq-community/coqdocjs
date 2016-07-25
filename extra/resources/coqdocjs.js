@@ -57,18 +57,28 @@ function replNodes() {
   });
 }
 
+function isVernacStart(l, t){
+  t = t.trim();
+  for(var s of l){
+    if (t == s || t.startsWith(s+" ") || t.startsWith(s+".")){
+      return true;
+    }
+  }
+  return false;
+}
+
 function isProofStart(s){
-  return s == "Proof";
+  return isVernacStart(["Proof"], s);
 }
 
 function isProofEnd(s){
-  return ["Qed", "Admitted", "Defined"].indexOf(s) > -1;
+  return isVernacStart(["Qed", "Admitted", "Defined"], s);
 }
 
 function proofStatus(){
   var proofs = toArray(document.getElementsByClassName("proof"));
   if(proofs.length) {
-    for(proof of proofs) {
+    for(var proof of proofs) {
       if (proof.getAttribute("show") === "false") {
           return "some-hidden";
       }
@@ -85,7 +95,14 @@ function updateView(){
 }
 
 function foldProofs() {
-  toArray(document.getElementsByClassName("id")).forEach(function(node){
+  var hasCommands = true;
+  var nodes = document.getElementsByClassName("command");
+  if(nodes.length == 0) {
+    hasCommands = false;
+    console.log("no command tags found")
+    nodes = document.getElementsByClassName("id");
+  }
+  toArray(nodes).forEach(function(node){
     if(isProofStart(node.textContent)) {
       var proof = document.createElement("span");
       proof.setAttribute("class", "proof");
@@ -98,10 +115,9 @@ function foldProofs() {
         node = proof.nextSibling;
       }
       if (proof.nextSibling) proof.appendChild(proof.nextSibling); // the Qed
-      if (proof.nextSibling) proof.appendChild(proof.nextSibling); // the dot after the Qed
+      if (!hasCommands && proof.nextSibling) proof.appendChild(proof.nextSibling); // the dot after the Qed
 
       proof.addEventListener("click", function(proof){return function(e){
-        console.log(e.target.parentNode.tagName);
         if (e.target.parentNode.tagName.toLowerCase() === "a")
           return;
         proof.setAttribute("show", proof.getAttribute("show") === "true" ? "false" : "true");
@@ -123,6 +139,13 @@ function toggleProofs(){
 }
 
 function repairDom(){
+  // pull whitespace out of command
+  toArray(document.getElementsByClassName("command")).forEach(function(node){
+    while(node.firstChild && node.firstChild.textContent.trim() == ""){
+      console.log("try move");
+      node.parentNode.insertBefore(node.firstChild, node);
+    }
+  });
   toArray(document.getElementsByClassName("id")).forEach(function(node){
     node.setAttribute("type", node.getAttribute("title"));
   });
