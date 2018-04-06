@@ -105,17 +105,20 @@ html, body {
   padding:0;
 }
 
-body {
-  display: flex;
-  flex-direction: column
+@media only screen { /* no div with internal scrolling to allow printing of whole content */
+    body {
+        display: flex;
+        flex-direction: column 
+    }
+
+    #content {
+        flex: 1;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-#content {
-  flex: 1;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-}
 #content:focus {
   outline: none; /* prevent glow in OS X */
 }
