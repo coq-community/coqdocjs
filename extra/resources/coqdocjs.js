@@ -72,7 +72,7 @@ function isProofStart(s){
 }
 
 function isProofEnd(s){
-  return isVernacStart(["Qed", "Admitted", "Defined"], s);
+  return isVernacStart(["Qed", "Admitted", "Defined", "Abort"], s);
 }
 
 function proofStatus(){
