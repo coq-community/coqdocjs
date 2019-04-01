@@ -43,13 +43,14 @@
 .proof {
   overflow: hidden;
   position: relative;
+  transition: opacity 1s;
   display: inline-block;
 }
 
 .proof[show="false"] {
   max-height: 1.2em;
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 0.3;
 }
 
 .proof[show="false"][animate] {
