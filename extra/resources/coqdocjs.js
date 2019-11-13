@@ -68,7 +68,7 @@ function isVernacStart(l, t){
 }
 
 function isProofStart(s){
-  return isVernacStart(["Proof"], s);
+  return isVernacStart(["Proof", "Next Obligation"], s);
 }
 
 function isProofEnd(s){
@@ -94,6 +94,23 @@ function updateView(){
   document.getElementById("toggle-proofs").setAttribute("proof-status", proofStatus());
 }
 
+function mergeNextObligation(){
+  var i;
+  var hasCommands = true;
+  var nodes = document.getElementsByClassName("command");
+  if(nodes.length == 0) {
+    hasCommands = false;
+    console.log("no command tags found")
+    nodes = document.getElementsByClassName("id");
+  }
+  for (i = 0; i < nodes.length - 1; i++) {
+    if(nodes[i].textContent === "Next" && nodes[i+1].textContent === "Obligation"){
+      nodes[i].textContent = "Next Obligation";
+      nodes[i+1].parentNode.removeChild(nodes[i+1]);
+    }
+  }
+}
+
 function foldProofs() {
   var hasCommands = true;
   var nodes = document.getElementsByClassName("command");
@@ -102,6 +119,7 @@ function foldProofs() {
     console.log("no command tags found")
     nodes = document.getElementsByClassName("id");
   }
+  mergeNextObligation();
   toArray(nodes).forEach(function(node){
     if(isProofStart(node.textContent)) {
       var proof = document.createElement("span");
