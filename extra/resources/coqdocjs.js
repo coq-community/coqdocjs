@@ -6,7 +6,13 @@ function replace(s){
   if (m = s.match(/^(.+)'/)) {
     return replace(m[1])+"'";
   } else if (m = s.match(/^([A-Za-z]+)_?(\d+)$/)) {
-    return replace(m[1])+m[2].replace(/\d/g, function(d){return coqdocjs.subscr[d]});
+    return replace(m[1])+m[2].replace(/\d/g, function(d){
+      if (coqdocjs.subscr.hasOwnProperty(d)) {
+        return coqdocjs.subscr[d];
+      } else {
+        return d;
+      }
+    });
   } else if (coqdocjs.repl.hasOwnProperty(s)){
     return coqdocjs.repl[s]
   } else {
