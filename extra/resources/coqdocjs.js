@@ -73,8 +73,9 @@ function isVernacStart(l, t){
   return false;
 }
 
-function isProofStart(s){
-  return isVernacStart(["Proof"], s);
+function isProofStart(n){
+    return isVernacStart(["Proof"], n.textContent) ||
+        (isVernacStart(["Next"], n.textContent) && isVernacStart(["Obligation"], n.nextSibling.nextSibling.textContent));
 }
 
 function isProofEnd(s){
@@ -109,7 +110,7 @@ function foldProofs() {
     nodes = document.getElementsByClassName("id");
   }
   toArray(nodes).forEach(function(node){
-    if(isProofStart(node.textContent)) {
+    if(isProofStart(node)) {
       var proof = document.createElement("span");
       proof.setAttribute("class", "proof");
 
