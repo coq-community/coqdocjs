@@ -160,12 +160,10 @@ function repairDom(){
 
 function fixTitle(){
   var url = "/" + window.location.pathname;
-  var modulename = "." + url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
-  modulename = modulename.substring(modulename.lastIndexOf('.')+1);
-  if (modulename === "toc") {modulename = "Table of Contents";}
-  else if (modulename === "indexpage") {modulename = "Index";}
-  else {modulename = modulename + ".v";};
-  document.title = modulename;
+  var basename = url.substring(url.lastIndexOf('/')+1, url.lastIndexOf('.'));
+  if (basename === "toc") {document.title = "Table of Contents";}
+  else if (basename === "indexpage") {document.title = "Index";}
+  else {document.title = basename;}
 }
 
 function postprocess(){
