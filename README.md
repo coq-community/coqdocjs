@@ -18,21 +18,15 @@ All of this works with the ordinary coqdoc, by asking coqdoc to use a header fil
 
 ## Usage
 
-### Set-up a new project
+1. Clone this repository as a subdirectory or submodule;
+2. Include [`Makefile.doc`](Makefile.doc) in your `Makefile`;
+3. Run `make html` to build documentations.
 
-This repo is a complete setup with a generic Makefile. Just add your Coq files in the same folder as the Makefile.
-Execute `make` to build the Coqdoc website in the folder `html`.
-Specify the name of your package in the file [\_CoqProject](_CoqProject).
-Optionally, you can list your source files in [\_CoqProject](_CoqProject).
-Then the makefile will only build these files and the documentation will list them in the specified order.
-
-### Integrate into existing project
-
-Make sure that your Makefile passes [header.html](extra/header.html) and [footer.html](extra/footer.html) as command-line arguments to coqdoc and copies the content of [extra/resources](extra/resources) to the folder containing the built website. Confer the supplied Makefile for details.
+A minimal example is shown [here](example).
 
 ## Files
 
-- [Makefile](Makefile) and [\_CoqProject](_CoqProject): a generic Makefile setup that calls coqc and coqdoc with the right parameters
+- [Makefile.doc](Makefile.doc): a generic Makefile setup that calls coqc and coqdoc with the right parameters
 - [config.js](extra/resources/config.js): contains the unicode replacement table
 - [coqdoc.css](extra/resources/coqdoc.css): a replacement for the default Coqdoc CSS style. Can be removed to use the default style
 - [coqdocjs.js](extra/resources/coqdocjs.js) and [coqdocjs.css](extra/resources/coqdocjs.css): the script rewriting the DOM and adding the dynamic features with a corresponding CSS style
