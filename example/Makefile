@@ -1,4 +1,8 @@
 COQMAKEFILE ?= Makefile.coq
+COQDOCFLAGS_EXTRA = -s
+
+all: $(COQMAKEFILE)
+	$(MAKE) -f $^ $@
 
 include coqdocjs/Makefile.doc
 
