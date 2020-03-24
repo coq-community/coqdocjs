@@ -1,7 +1,6 @@
 COQDOCJS_DIR ?= coqdocjs
 EXTRA_DIR = $(COQDOCJS_DIR)/extra
 COQDOCFLAGS ?= \
-  $(COQDOCFLAGS_EXTRA) \
   --toc --toc-depth 2 --html --interpolate \
   --index indexpage --no-lib-name --parse-comments \
   --with-header $(EXTRA_DIR)/header.html --with-footer $(EXTRA_DIR)/footer.html

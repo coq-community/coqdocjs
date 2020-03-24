@@ -1,5 +1,5 @@
 COQMAKEFILE ?= Makefile.coq
-COQDOCFLAGS_EXTRA = -s
+COQDOCEXTRAFLAGS = -s
 
 all: $(COQMAKEFILE)
 	$(MAKE) -f $^ $@
