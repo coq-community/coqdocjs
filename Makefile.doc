@@ -6,14 +6,14 @@ COQDOCFLAGS ?= \
   --with-header $(EXTRA_DIR)/header.html --with-footer $(EXTRA_DIR)/footer.html
 export COQDOCFLAGS
 COQMAKEFILE ?= Makefile.coq
-COQDOCJS_CP ?= false
+COQDOCJS_LN ?= false
 
-html: $(COQMAKEFILE)
-	$(MAKE) -f $^ $@
-ifeq ($(COQDOCJS_CP),true)
-	cp -R $(EXTRA_DIR)/resources $@
+coqdoc: $(COQMAKEFILE)
+	$(MAKE) -f $^ html
+ifeq ($(COQDOCJS_LN),true)
+	ln -sf ../$(EXTRA_DIR)/resources html
 else
-	ln -sf ../$(EXTRA_DIR)/resources $@
+	cp -R $(EXTRA_DIR)/resources html
 endif
 
-.PHONY: html
+.PHONY: coqdoc
